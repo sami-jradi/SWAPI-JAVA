@@ -38,15 +38,14 @@ public class InhabitantsServiceImpl implements InhabitantsService {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        List<Planets> planets = mapper.convertValue(modelResult.getResults(), new TypeReference<List<Planets>>() {});
+        List<Planets> planets = mapper.convertValue(modelResult.getResults(), new TypeReference<List<Planets>>() {
+        });
 
         List<String> peopleUriList = new ArrayList<>();
 
         List<PeopleDTO> inhabitants = new ArrayList<>();
 
-        for (Planets planet : planets) {
-            peopleUriList = planet.getResidents();
-        }
+        peopleUriList = planets.get(0).getResidents();
 
         for (String peopleUri : peopleUriList) {
             inhabitants.add(modelMapper.toPeopleDto(getInhabitantByUri(peopleUri)));

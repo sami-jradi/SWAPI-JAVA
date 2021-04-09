@@ -8,14 +8,12 @@ import com.sami.swapi.models.ModelResult;
 import com.sami.swapi.models.People;
 import com.sami.swapi.models.Starship;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.MediaType;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class StarshipServiceImpl implements StarshipService {
@@ -41,15 +39,14 @@ public class StarshipServiceImpl implements StarshipService {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        List<People> characters = mapper.convertValue(modelResult.getResults(), new TypeReference<List<People>>() {});
+        List<People> characters = mapper.convertValue(modelResult.getResults(), new TypeReference<List<People>>() {
+        });
 
         List<String> starshipUriList = new ArrayList<>();
 
         List<StarshipDTO> starshipList = new ArrayList<>();
 
-        for (People character : characters) {
-            starshipUriList = Arrays.asList(character.getStarships());
-        }
+        starshipUriList = Arrays.asList(characters.get(0).getStarships());
 
         for (String starshipUri : starshipUriList) {
             starshipList.add(modelMapper.toStarshipDto(getStarshipByUri(starshipUri)));
