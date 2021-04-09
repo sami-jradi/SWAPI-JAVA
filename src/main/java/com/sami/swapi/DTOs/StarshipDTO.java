@@ -13,9 +13,9 @@ public class StarshipDTO {
 
     String model;
 
-    String max_atmosphering_speed;
+    String maxAtmospheringSpeed;
 
-    String cargo_capacity;
+    String cargoCapacity;
 
     String passengers;
 
@@ -29,15 +29,15 @@ public class StarshipDTO {
 
     String length;
 
-    String starship_class;
+    String starshipClass;
 
     String manufacturer;
 
     String crew;
 
-    String hyperdrive_rating;
+    String hyperdriveRating;
 
-    String cost_in_credits;
+    String costInCredits;
 
     String url;
 }

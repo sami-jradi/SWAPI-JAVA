@@ -15,7 +15,7 @@ public class PeopleDTO {
 
     String gender;
 
-    String skin_color;
+    String skinColor;
 
     String edited;
 
@@ -23,11 +23,11 @@ public class PeopleDTO {
 
     String mass;
 
-    String hair_color;
+    String hairColor;
 
-    String birth_year;
+    String birthYear;
 
-    String eye_color;
+    String eyeColor;
 
     String url;
 
