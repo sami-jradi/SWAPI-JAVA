@@ -37,3 +37,5 @@ The goal of this exercise is to develop a microservice to manage information con
  
  -To run an instance of the image (container):
  run `docker-compose build`
+ 
+ note: The docker container runs on port `6969`.
